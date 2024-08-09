@@ -11,3 +11,14 @@ interface IBOTS {
   daily_pnl: number;
   total_profit: number;
 }
+
+export interface ITRADEBOTS {
+  bot_id: string;
+  name: string;
+  subscriber: number;
+  total_profits: number;
+  apy: number;
+  runtime: number;
+  tvl: number;
+  operated_in: string;
+}

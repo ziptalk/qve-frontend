@@ -4,8 +4,10 @@ import SelectView from '../components/SelectView';
 import BotBoard from '../components/BotBoard';
 import { IcSearch, IcSort } from '../assets/0_index';
 import { STCOMBoxWrapper } from '../../common/styles/commonStyleComs';
+import { MOCK_TRADEBOTS } from '../constants/mainPage_MOCK';
 
 const TradeBots = () => {
+  const data = MOCK_TRADEBOTS;
   return (
     <StContainer>
       <SelectView view={VIEW.TRADE_BOTS} />
@@ -22,8 +24,9 @@ const TradeBots = () => {
       </StTopContainer>
 
       <StBotsContainer>
-        <BotBoard />
-        <BotBoard />
+        {data.map((bot) => (
+          <BotBoard data={bot} active={bot.bot_id} />
+        ))}
       </StBotsContainer>
     </StContainer>
   );

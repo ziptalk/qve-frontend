@@ -9,41 +9,42 @@ import {
   LogoCyclicArbBot,
   operatedLogo,
 } from '../assets/0_index';
+import { ITRADEBOTS } from '../types/dashboardType';
 
-const BotBoard = () => {
+const BotBoard = ({ data, active }: { data: ITRADEBOTS; active: string }) => {
   return (
     <StContainer>
       <StBotInfo>
         <LogoCyclicArbBot />
         <StBotInfoLayout>
-          <StBotName>Cyclic Arbn bot</StBotName>
+          <StBotName>{data.name}</StBotName>
           <div>
             <IcPersons />
-            <p>17,206</p>
+            <p>{data.subscriber}</p>
           </div>
         </StBotInfoLayout>
       </StBotInfo>
-      {true ? (
+      {active ? (
         <>
           <StTotalProfitsContainer>
             <StTotalPRofits>
               <label>Total Profits</label>
-              <p>54.83 %</p>
+              <p>{data.total_profits} %</p>
             </StTotalPRofits>
             <Graph />
           </StTotalProfitsContainer>
           <StBotSummaryValue>
             <div>
               <label>APY</label>
-              <p>45.21%</p>
+              <p>{data.apy}%</p>
             </div>
             <div>
               <label>Runtime</label>
-              <p>10d 17h 12m</p>
+              <p>{data.runtime}</p>
             </div>
             <div>
               <label>TVL</label>
-              <p>111,123.12 NTRN</p>
+              <p>{data.tvl} NTRN</p>
             </div>
           </StBotSummaryValue>
           <StBottomContainer>
@@ -51,7 +52,7 @@ const BotBoard = () => {
               <label>operatied in</label>
               <img src={operatedLogo} alt='' />
             </StOperated>
-            <StDeposit>Deposit</StDeposit>
+            <StDeposit onClick={() => {}}>Deposit</StDeposit>
           </StBottomContainer>
         </>
       ) : (

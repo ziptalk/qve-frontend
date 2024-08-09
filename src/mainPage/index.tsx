@@ -3,14 +3,18 @@ import Footer from '../common/components/Footer';
 import Header from '../common/components/Header';
 import { announceIMG } from './assets/0_index';
 import { Outlet } from 'react-router-dom';
+import useModal from '../common/utils/useModal';
+import BotModal from './components/BotModal';
 
 const MainPage = () => {
+  const { isModalOpen, openModal, closeModal } = useModal();
   return (
     <St.MainContainer>
       <Header />
       <Announcement />
       <Dashboard />
       <Footer />
+      <BotModal isOpen={isModalOpen} onClose={closeModal} />
     </St.MainContainer>
   );
 };
