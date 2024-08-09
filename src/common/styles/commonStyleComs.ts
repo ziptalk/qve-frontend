@@ -18,3 +18,12 @@ export const STCOMBlueBtn = styled.button`
   ${({ theme }) => theme.fonts.body_2_bold};
   color: ${({ theme }) => theme.colors.white};
 `;
+
+export const STCOMGreyBtn = styled.button`
+  width: fit-content;
+  height: fit-content;
+  background-color: #545b67;
+  border-radius: 100px;
+  ${({ theme }) => theme.fonts.body_2_bold};
+  color: ${({ theme }) => theme.colors.white};
+`;

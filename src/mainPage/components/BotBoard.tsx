@@ -64,7 +64,8 @@ const BotBoard = () => {
 export default BotBoard;
 
 const StContainer = styled(STCOMBoxWrapper)`
-  flex-basis: calc(50% - 1rem);
+  min-width: 43.2rem;
+  width: calc(50% - 1rem);
   max-width: 59rem;
   height: 45.4rem;
   padding: 3.6rem 4.6rem;
