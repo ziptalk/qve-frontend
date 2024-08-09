@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <StContainer>
       <StWrapper>
-        <StQveLogo />
+        <StQveLogo onClick={() => navigate('/')} />
         {location.pathname === '/onboarding' ? (
           <StNav>
             <StNavItem onClick={() => navigate('/')}>About</StNavItem>
