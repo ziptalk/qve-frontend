@@ -1,13 +1,19 @@
 // import nuetron_chainInfo from './network_info';
 
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IcQveIcon } from './assets/0_indes';
+import { useNavigate } from 'react-router-dom';
 
 const ConnectWallet = () => {
+  const navigate = useNavigate();
   const [address, setAddress] = useState(
     localStorage.getItem('NEUTRONADDRESS')
   );
+
+  useEffect(() => {
+    setAddress(localStorage.getItem('NEUTRONADDRESS'));
+  }, []);
   const connectKeplr = async () => {
     if (!window.keplr) {
       alert('Please install Keplr extension');
@@ -29,6 +35,7 @@ const ConnectWallet = () => {
       const userAddress = accounts[0].address;
       localStorage.setItem('NEUTRONADDRESS', userAddress);
       setAddress(userAddress);
+      navigate('/tradeBots');
     } catch (error) {
       console.error(error);
       alert('Failed to connect to Keplr wallet');
@@ -59,7 +66,8 @@ const StWalletBtn = styled.button`
   justify-content: center;
   align-items: center;
   background: linear-gradient(125deg, #2f44b0ab 1%, #581a38e4 99%);
-  width: 16.7rem;
+  min-width: 16.7rem;
+  width: fit-content;
   height: 4.6rem;
   border-radius: 20px;
   padding: 1rem;
@@ -77,6 +85,11 @@ const StIcon = styled.div`
   width: 100%;
   gap: 0.5rem;
   align-items: center;
+
+  & > span {
+    width: 14.7rem;
+    text-overflow: ellipsis;
+  }
 `;
 
 const StI = styled.div`

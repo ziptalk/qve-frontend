@@ -14,14 +14,16 @@ import Footer from '../common/components/Footer.tsx';
 
 const OnBoarding = () => {
   return (
-    <St.MainContainer>
+    <>
       <Header />
-      <OnBoarding1 />
-      <OnBoarding2 />
-      <OnBoarding3 />
-      <OnBoarding4 />
-      <Footer />
-    </St.MainContainer>
+      <St.MainContainer>
+        <OnBoarding1 />
+        <OnBoarding2 />
+        <OnBoarding3 />
+        <OnBoarding4 />
+        <Footer />
+      </St.MainContainer>
+    </>
   );
 };
 

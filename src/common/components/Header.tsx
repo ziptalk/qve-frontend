@@ -36,8 +36,9 @@ const Header = () => {
 export default Header;
 
 const StContainer = styled.header`
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;

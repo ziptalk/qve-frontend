@@ -8,7 +8,12 @@ export const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 6.4rem;
+  padding: 9.5rem 6.4rem 0;
+
+  transform-origin: top center;
+  @media (max-width: 1600px) {
+    transform: scale(0.9);
+  }
 `;
 
 export const Announcement = {

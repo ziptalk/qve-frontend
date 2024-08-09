@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SelectView from '../components/SelectView';
 import { VIEW } from '../components/SelectView';
 import styled from '@emotion/styled';
@@ -6,15 +6,18 @@ import { DASHBORADTABLEHEADER } from '../constants/DASHBOARD';
 import { MOCK_DASHBOARD } from '../constants/mainPage_MOCK';
 import {
   STCOMBlueBtn,
+  STCOMBoxWrapper,
   STCOMGreyBtn,
 } from '../../common/styles/commonStyleComs';
+import { IDashboard } from '../types/dashboardType';
+import { IcStrokeLogo, onBoardingCube } from '../../common/assets/0_index';
+import { useNavigate } from 'react-router-dom';
+import ConnectWallet from '../../wallet/ConnectWallet';
 
-const Dashboard = () => {
+const ShowDashboardData = ({ data }: { data: IDashboard }) => {
   const TOKEN = 'NTRN';
-  const [data] = useState(MOCK_DASHBOARD);
   return (
-    <StContainer>
-      <SelectView view={VIEW.DASHBOARD} />
+    <>
       <StTotalContainer>
         <div>
           <label>Total Balance</label>
@@ -67,6 +70,69 @@ const Dashboard = () => {
           ))}
         </tbody>
       </StTable>
+    </>
+  );
+};
+
+const ISnotConnectWallet = () => {
+  return (
+    <StNotConnectContainer>
+      <StBackbround src={onBoardingCube} />
+      <IcStrokeLogo />
+      <span>
+        <StText1>QVE is not connected</StText1>
+        <StText1>to your wallet</StText1>
+        <div />
+        <StText2>To see more information about this vault</StText2>
+        <StText2>you need to connect your wallet</StText2>
+      </span>
+      <ConnectWallet />
+    </StNotConnectContainer>
+  );
+};
+
+const ISnotSelectBot = () => {
+  const navigate = useNavigate();
+  return (
+    <StNotConnectContainer>
+      <StBackbround src={onBoardingCube} />
+      <IcStrokeLogo />
+      <span>
+        <StText1>You are not investing in the</StText1>
+        <StText1>trading bot. Go invest now!</StText1>
+        <div />
+        <StText2>You have not deposited to QVE.</StText2>
+        <StText2>
+          If you want to earn profits, go ahead and make a deposit!
+        </StText2>
+      </span>
+      <StConnectWallet
+        onClick={() => {
+          navigate('/tradeBots');
+        }}
+      >
+        Trade Now
+      </StConnectWallet>
+    </StNotConnectContainer>
+  );
+};
+
+const Dashboard = () => {
+  const [isWalletConnect] = useState(localStorage.getItem('NEUTRONADDRESS'));
+
+  const [data] = useState(MOCK_DASHBOARD);
+  return (
+    <StContainer>
+      <SelectView view={VIEW.DASHBOARD} />
+      {isWalletConnect ? (
+        data.bots.length ? (
+          <ShowDashboardData data={data} />
+        ) : (
+          <ISnotSelectBot />
+        )
+      ) : (
+        <ISnotConnectWallet />
+      )}
     </StContainer>
   );
 };
@@ -138,4 +204,54 @@ const StAddBtn = styled(STCOMBlueBtn)`
 const StRemoveBtn = styled(STCOMGreyBtn)`
   padding: 1.3rem 1.6rem;
   ${({ theme }) => theme.fonts.body_3m};
+`;
+
+const StNotConnectContainer = styled(STCOMBoxWrapper)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 55rem;
+  gap: 3rem;
+  background: var(
+    --glass-effect,
+    linear-gradient(
+      144deg,
+      rgba(255, 255, 255, 0.1) -9.46%,
+      rgba(255, 255, 255, 0.25) 115.25%
+    )
+  );
+
+  & > span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & > div {
+      height: 2rem;
+    }
+  }
+`;
+
+const StText1 = styled.p`
+  ${({ theme }) => theme.fonts.title_0};
+`;
+
+const StText2 = styled.p`
+  ${({ theme }) => theme.fonts.body_3};
+  color: ${({ theme }) => theme.colors.sub_white};
+`;
+
+const StConnectWallet = styled(STCOMBlueBtn)`
+  padding: 1.8rem 3.2rem;
+`;
+
+const StBackbround = styled.img`
+  width: 90%;
+  position: absolute;
+  top: 25%;
+  right: 20%;
+  z-index: -1;
 `;
