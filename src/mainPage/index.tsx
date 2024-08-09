@@ -2,12 +2,18 @@ import * as St from './style_dashboard';
 import Footer from '../common/components/Footer';
 import Header from '../common/components/Header';
 import { announceIMG } from './assets/0_index';
+import AssetBoard from './components/BotBoard';
+import { useState } from 'react';
+import { VIEW } from './components/DashboardContainer';
+import SelectButtons from './components/SelectView';
+import { Outlet } from 'react-router-dom';
 
-const Dashborad = () => {
+const MainPage = () => {
   return (
     <St.MainContainer>
       <Header />
       <Announcement />
+      <Dashboard />
       <Footer />
     </St.MainContainer>
   );
@@ -28,4 +34,12 @@ const Announcement = () => {
   );
 };
 
-export default Dashborad;
+const Dashboard = () => {
+  return (
+    <St.Dashboard.Container>
+      <Outlet />
+    </St.Dashboard.Container>
+  );
+};
+
+export default MainPage;

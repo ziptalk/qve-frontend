@@ -38,3 +38,11 @@ export const Announcement = {
     ${({ theme }) => theme.fonts.title_1};
   `,
 };
+
+export const Dashboard = {
+  Container: styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  `,
+};

@@ -11,9 +11,7 @@ const Header = () => {
     <StContainer>
       <StWrapper>
         <StQveLogo />
-        {location.pathname === '/dashboard' ? (
-          <ConnectWallet />
-        ) : (
+        {location.pathname === '/onboarding' ? (
           <StNav>
             <StNavItem onClick={() => navigate('/')}>About</StNavItem>
             <StNavItem onClick={() => navigate('/')}>Features</StNavItem>
@@ -27,6 +25,8 @@ const Header = () => {
             </StNavItem>
             <TradeNowBtn />
           </StNav>
+        ) : (
+          <ConnectWallet />
         )}
       </StWrapper>
     </StContainer>

@@ -6,7 +6,7 @@ import { IcQveIcon } from './assets/0_indes';
 
 const ConnectWallet = () => {
   const [address, setAddress] = useState(
-    localStorage.getItem('NUETRONADDRESS')
+    localStorage.getItem('NEUTRONADDRESS')
   );
   const connectKeplr = async () => {
     if (!window.keplr) {
@@ -27,7 +27,7 @@ const ConnectWallet = () => {
       // 계정 정보 가져오기
       const accounts = await offlineSigner.getAccounts();
       const userAddress = accounts[0].address;
-      localStorage.setItem('NUETRONADDRESS', userAddress);
+      localStorage.setItem('NEUTRONADDRESS', userAddress);
       setAddress(userAddress);
     } catch (error) {
       console.error(error);

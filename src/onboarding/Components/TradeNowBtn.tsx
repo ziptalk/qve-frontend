@@ -8,7 +8,7 @@ const TradeNowBtn = () => {
     <StTradeNowBtn
       type='button'
       onClick={() => {
-        navigate('/dashboard');
+        navigate('/tradeBots');
       }}
     >
       <span>Trade Now</span>
