@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { STCOMBoxWrapper } from '../common/styles/commonStyleComs';
 export const MainContainer = styled.div`
   width: 100vw;
+  max-width: 1200px;
   position: relative;
   display: flex;
   flex-direction: column;

@@ -2,10 +2,6 @@ import * as St from './style_dashboard';
 import Footer from '../common/components/Footer';
 import Header from '../common/components/Header';
 import { announceIMG } from './assets/0_index';
-import AssetBoard from './components/BotBoard';
-import { useState } from 'react';
-import { VIEW } from './components/DashboardContainer';
-import SelectButtons from './components/SelectView';
 import { Outlet } from 'react-router-dom';
 
 const MainPage = () => {

@@ -21,10 +21,10 @@ const TradeBots = () => {
         </StSortContainer>
       </StTopContainer>
 
-      <div>
+      <StBotsContainer>
         <BotBoard />
         <BotBoard />
-      </div>
+      </StBotsContainer>
     </StContainer>
   );
 };
@@ -91,4 +91,11 @@ const StSortBtn = styled(STCOMBoxWrapper)`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const StBotsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 `;

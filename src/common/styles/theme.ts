@@ -31,6 +31,7 @@ const FONT = (
 
 const fonts = {
   title_0: FONT('Montserrat', 4.2, 'normal', 'Bold', '140', 0),
+  title_0_pre: FONT('Pretendard Variable', 4, 'normal', '600', '140', 0),
   title_TVL: FONT('Montserrat', 4, 'normal', 'Bold', 'auto', 0),
   title_1m: FONT('Montserrat', 3.4, 'normal', 'Bold', '140', 0),
   title_1: FONT('Pretendard Variable', 3.4, 'normal', 'Bold', '140', 0),

@@ -9,3 +9,12 @@ export const STCOMBoxWrapper = styled.div`
     rgba(255, 255, 255, 0.25) 115.25%
   );
 `;
+
+export const STCOMBlueBtn = styled.button`
+  width: fit-content;
+  height: fit-content;
+  background-color: ${({ theme }) => theme.colors.qve_blue};
+  border-radius: 100px;
+  ${({ theme }) => theme.fonts.body_2_bold};
+  color: ${({ theme }) => theme.colors.white};
+`;

@@ -38,7 +38,7 @@ export default Header;
 const StContainer = styled.header`
   position: sticky;
   top: 0;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,7 +55,7 @@ const StWrapper = styled.div`
   height: 4.6rem;
   width: 100%;
   max-width: 120rem;
-  margin: 3.2rem 0.8rem 1.6rem;
+  margin: 3.2rem 0rem 1.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
